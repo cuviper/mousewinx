@@ -1,0 +1,179 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "MouseWinX.manifest"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_HOT                 ICON                    "WinXHot.ico"
+IDI_COLD                ICON                    "WinXCold.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_NOTIFYICON MENU 
+BEGIN
+    POPUP "Popup"
+    BEGIN
+        MENUITEM "A&ctivate",                   ID_POPUP_ACTIVATE
+        MENUITEM "A&utoraise",                  ID_POPUP_AUTORAISE
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_POPUP_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_POPUP_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SETTINGS DIALOGEX 0, 0, 173, 94
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | 
+    DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_APPWINDOW
+CAPTION "MouseWinX Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,8,73,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,62,73,50,14
+    PUSHBUTTON      "&Apply",IDAPPLY,116,73,50,14,WS_DISABLED
+    GROUPBOX        "New Settings",IDC_USERGROUP,7,7,113,60,WS_GROUP
+    CONTROL         "A&ctivation follows mouse",IDC_USERTRACKING,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,20,95,10
+    CONTROL         "A&utoraise when activating",IDC_USERZORDER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,33,99,10
+    LTEXT           "Activation &delay (ms):",IDC_USERDELAYLABEL,15,48,71,8,
+                    SS_NOTIFY | NOT WS_GROUP
+    EDITTEXT        IDC_USERDELAY,87,46,25,14,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_RIGHT
+    GROUPBOX        "Current",IDC_SYSGROUP,125,7,41,60,WS_GROUP
+    CONTROL         "",IDC_SYSTRACKING,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED,141,20,10,10
+    CONTROL         "",IDC_SYSZORDER,"Button",BS_AUTOCHECKBOX | WS_DISABLED,
+                    141,33,9,10
+    EDITTEXT        IDC_SYSDELAY,133,46,25,14,ES_AUTOHSCROLL | WS_DISABLED | 
+                    NOT WS_TABSTOP,WS_EX_RIGHT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_HELP_OK             "Closes the dialog box and saves any changes you have made."
+    IDS_HELP_CANCEL         "Closes the dialog box without saving any changes you have made."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_HELP_APPLY          "Save all the changes you have made without closing the dialog box."
+    IDS_HELP_USERGROUP      "Controls to edit the user preferences before applying them to the system."
+    IDS_HELP_USERTRACKING   "Enables X-Mouse style window activation, which gives focus to the window under the mouse pointer."
+    IDS_HELP_USERZORDER     "Enables the option to bring windows to the foreground when they are activated."
+    IDS_HELP_USERDELAY      "Specifies the amount of time required (in milliseconds) for the mouse to be over a window before it is activated."
+    IDS_HELP_SYSGROUP       "Controls that show the settings currently applied to the system."
+    IDS_HELP_SYSTRACKING    "Shows the current system setting for X-Mouse style window activation."
+    IDS_HELP_SYSZORDER      "Shows the current system setting for whether to bring windows to the foreground."
+    IDS_HELP_SYSDELAY       "Shows the current system delay before the mouse will activate a window."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
