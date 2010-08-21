@@ -1,4 +1,10 @@
 // MouseWinX.c : Defines the entry point for the application.
+// Copyright (C) 2005, 2010  Josh Stone
+//
+// This file is part of MouseWinX, and is free software: you can
+// redistribute it and/or modify it under the terms of the GNU General
+// Public License as published by the Free Software Foundation, either
+// version 3 of the License, or (at your option) any later version.
 //
 
 #include "stdafx.h"
