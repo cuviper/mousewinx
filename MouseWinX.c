@@ -380,20 +380,20 @@ DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     CheckDlgButton(hDlg, IDC_SYSTRACKING,
                         bSysTracking ? BST_CHECKED : BST_UNCHECKED);
                     UpdateDialogApply(hDlg);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
 			        return TRUE;
 		        case SPI_SETACTIVEWNDTRKZORDER:
                     DBG0("DlgProc got WM_APP_SETTINGCHANGE:SPI_SETACTIVEWNDTRKZORDER\n");
                     CheckDlgButton(hDlg, IDC_SYSZORDER,
                         bSysZOrder ? BST_CHECKED : BST_UNCHECKED);
                     UpdateDialogApply(hDlg);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
 			        return TRUE;
 		        case SPI_SETACTIVEWNDTRKTIMEOUT:
                     DBG0("DlgProc got WM_APP_SETTINGCHANGE:SPI_SETACTIVEWNDTRKTIMEOUT\n");
                     SetDlgItemInt(hDlg, IDC_SYSDELAY, dwSysDelay, FALSE);
                     UpdateDialogApply(hDlg);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
 			        return TRUE;
 	        }
             break;
@@ -423,18 +423,18 @@ DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 case IDAPPLY:
                     DBG0("DlgProc got WM_COMMAND:IDAPPLY\n");
                     ApplyUserSettings(hDlg);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
                     return TRUE;
                 case IDOK:
                     DBG0("DlgProc got WM_COMMAND:IDOK\n");
                     ApplyUserSettings(hDlg);
                     EndDialog(hDlg, 0);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
                     return TRUE;
                 case IDCANCEL:
                     DBG0("DlgProc got WM_COMMAND:IDCANCEL\n");
                     EndDialog(hDlg, 0);
-                    SetWindowLong(hDlg, DWL_MSGRESULT, 0);
+                    SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
                     return TRUE;
             }
             break;
