@@ -64,7 +64,7 @@ UpdateParameter(UINT uiAction, PVOID pvParam)
 BOOL 
 SendNotifyIconMessage(HWND hWnd, DWORD dwMessage)
 {
-    LPCTSTR lpszApp = _T("MouseWinx");
+    LPCTSTR lpszApp = _T("MouseWinX");
 
     NOTIFYICONDATA nid;
 
@@ -127,7 +127,7 @@ DestroyAllIcons()
 BOOL 
 InitInstance()
 {
-    LPCTSTR lpszApp = _T("MouseWinx");
+    LPCTSTR lpszApp = _T("MouseWinX");
 
     HWND hWnd;
     WNDCLASSEX wcx;
