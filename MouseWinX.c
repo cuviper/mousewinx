@@ -32,6 +32,7 @@ BOOL bSysZOrder;
 DWORD dwSysDelay;
 
 // Forward declarations of functions included in this code module:
+BOOL                UpdateParameter(UINT uiAction, PVOID pvParam);
 BOOL                SendNotifyIconMessage(HWND hWnd, DWORD dwMessage);
 BOOL                LoadAllIcons();
 BOOL                DestroyAllIcons();
@@ -48,6 +49,16 @@ INT_PTR CALLBACK    DlgProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 int APIENTRY        _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                               LPTSTR lpCmdLine, int nCmdShow);
+
+
+BOOL
+UpdateParameter(UINT uiAction, PVOID pvParam)
+{
+    // Don't use SPIF_SENDCHANGE, as that makes us wait for all windows to
+    // receive it.  A manual SendNotifyMessage lets us move on right away.
+    return SystemParametersInfo(uiAction, 0, pvParam, SPIF_UPDATEINIFILE)
+        && SendNotifyMessage(HWND_BROADCAST, WM_SETTINGCHANGE, uiAction, 0);
+}
 
 
 BOOL 
@@ -202,18 +213,15 @@ ApplyUserSettings(HWND hDlg)
 
     if (bUserTracking != bSysTracking) {
         DBG1("Setting activate to %s\n", bUserTracking ? "true" : "false");
-        SystemParametersInfo(SPI_SETACTIVEWINDOWTRACKING, 0,
-            IntToPtr(bUserTracking), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        UpdateParameter(SPI_SETACTIVEWINDOWTRACKING, IntToPtr(bUserTracking));
     }
     if (bUserZOrder != bSysZOrder) {
         DBG1("Setting autoraise to %s\n", bUserZOrder ? "true" : "false");
-        SystemParametersInfo(SPI_SETACTIVEWNDTRKZORDER, 0,
-            IntToPtr(bUserZOrder), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        UpdateParameter(SPI_SETACTIVEWNDTRKZORDER, IntToPtr(bUserZOrder));
     }
     if (dwUserDelay != dwSysDelay) {
         DBG1("Setting delay to %d\n", dwUserDelay);
-        SystemParametersInfo(SPI_SETACTIVEWNDTRKTIMEOUT, 0,
-            UIntToPtr(dwUserDelay), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+        UpdateParameter(SPI_SETACTIVEWNDTRKTIMEOUT, UIntToPtr(dwUserDelay));
     }
     return TRUE;
 }
@@ -496,13 +504,11 @@ WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             switch (LOWORD(wParam)) {
                 case ID_POPUP_ACTIVATE:
                     DBG0("WndProc got WM_COMMAND:ID_POPUP_ACTIVATE\n");
-                    SystemParametersInfo(SPI_SETACTIVEWINDOWTRACKING, 0,
-                        IntToPtr(!bSysTracking), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+                    UpdateParameter(SPI_SETACTIVEWINDOWTRACKING, IntToPtr(!bSysTracking));
                     return 0;
                 case ID_POPUP_AUTORAISE:
                     DBG0("WndProc got WM_COMMAND:ID_POPUP_AUTORAISE\n");
-                    SystemParametersInfo(SPI_SETACTIVEWNDTRKZORDER, 0,
-                        IntToPtr(!bSysZOrder), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+                    UpdateParameter(SPI_SETACTIVEWNDTRKZORDER, IntToPtr(!bSysZOrder));
                     return 0;
                 case ID_POPUP_SETTINGS:
                     DBG0("WndProc got WM_COMMAND:ID_POPUP_SETTINGS\n");
