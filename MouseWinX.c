@@ -11,6 +11,7 @@
 #include <shellapi.h>
 #include <crtdbg.h>
 #include <htmlhelp.h>
+#include <strsafe.h>
 #include "MouseWinX.h"
 
 #define WM_APP_NOTIFYICON      (WM_APP + 1)
@@ -83,7 +84,7 @@ SendNotifyIconMessage(HWND hWnd, DWORD dwMessage)
     nid.uFlags              = NIF_MESSAGE | NIF_ICON | NIF_TIP;
     nid.uCallbackMessage    = WM_APP_NOTIFYICON;
     nid.hIcon               = hIcon.small;
-    lstrcpyn(nid.szTip, lpszApp, sizeof(nid.szTip)/sizeof(TCHAR));
+    StringCchCopy(nid.szTip, sizeof(nid.szTip), lpszApp);
 
     return Shell_NotifyIcon(dwMessage, &nid);
 }
