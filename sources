@@ -1,0 +1,12 @@
+TARGETNAME = MouseWinX
+
+TARGETTYPE = PROGRAM
+
+USE_MFC = 1
+
+TARGETLIBS = \
+  $(SDK_LIB_PATH)\shell32.lib \
+  $(SDK_LIB_PATH)\htmlhelp.lib \
+
+SOURCES = MouseWinX.c MouseWinX.rc stdafx.c
+

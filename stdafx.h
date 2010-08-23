@@ -5,8 +5,11 @@
 
 #pragma once
 
+#ifndef WINVER
 #define WINVER 0x500
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
+#endif
+
 // Windows Header Files:
 #include <windows.h>
 // C RunTime Header Files
