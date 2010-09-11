@@ -1,0 +1,18 @@
+MouseWinX  is a Windows tray application that lets you quickly toggle X-mouse
+window activation, where the window focus follows position of the mouse cursor
+without having to click anything.  I wrote this back in college when I was
+using Magic VLSI for one of my classes, and I’ve also found it helpful for
+navigating GIMP.  Both are applications with multiple windows to interact
+with, and hot-tracking the mouse makes them a bit easier to use.  But the rest
+of the time I don’t like having the window focus jump around, so MouseWinX
+gives a simple icon in the tray which toggles the setting when clicked.
+
+That's all there is to using it -- just run the app, and toggle mouse-tracking
+by clicking the icon in the system tray.  A right-click on the icon will let
+you bring up a Settings window where you can fully tweak the behavior.
+
+You probably also want to tell Windows not to hide the icon.  On Windows XP,
+this is found by right-clicking the taskbar, then go to Properties -> Taskbar
+-> Customize, find the MouseWinX icon and change to "Always Show".  On Windows
+Vista and Windows 7, click the arrow next to the tray and go to Customize, and
+then for the MouseWinX icon choose "Show icon and notifications".
