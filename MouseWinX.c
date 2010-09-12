@@ -97,12 +97,12 @@ LoadAllIcons()
     int cxSmIcon = GetSystemMetrics(SM_CXSMICON);
     int cySmIcon = GetSystemMetrics(SM_CYSMICON);
 
-	hIconHot.big = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_HOT),
+    hIconHot.big = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_HOT),
         IMAGE_ICON, cxIcon, cyIcon, LR_DEFAULTCOLOR);
-	hIconHot.small = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_HOT),
+    hIconHot.small = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_HOT),
         IMAGE_ICON, cxSmIcon, cySmIcon, LR_DEFAULTCOLOR);
 
-	hIconCold.big = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_COLD),
+    hIconCold.big = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_COLD),
         IMAGE_ICON, cxIcon, cyIcon, LR_DEFAULTCOLOR);
     hIconCold.small = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDI_COLD),
         IMAGE_ICON, cxSmIcon, cySmIcon, LR_DEFAULTCOLOR);
@@ -381,8 +381,8 @@ DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
             return TRUE;
         case WM_APP_SETTINGCHANGE:
-	        switch (wParam) {
-		        case SPI_SETACTIVEWINDOWTRACKING:
+            switch (wParam) {
+                case SPI_SETACTIVEWINDOWTRACKING:
                     DBG0("DlgProc got WM_APP_SETTINGCHANGE:SPI_SETACTIVEWINDOWTRACKING\n");
                     SendMessage(hDlg, WM_SETICON, ICON_BIG, (LPARAM)hIcon.big);
                     SendMessage(hDlg, WM_SETICON, ICON_SMALL, (LPARAM)hIcon.small);
@@ -390,21 +390,21 @@ DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         bSysTracking ? BST_CHECKED : BST_UNCHECKED);
                     UpdateDialogApply(hDlg);
                     SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
-			        return TRUE;
-		        case SPI_SETACTIVEWNDTRKZORDER:
+                    return TRUE;
+                case SPI_SETACTIVEWNDTRKZORDER:
                     DBG0("DlgProc got WM_APP_SETTINGCHANGE:SPI_SETACTIVEWNDTRKZORDER\n");
                     CheckDlgButton(hDlg, IDC_SYSZORDER,
                         bSysZOrder ? BST_CHECKED : BST_UNCHECKED);
                     UpdateDialogApply(hDlg);
                     SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
-			        return TRUE;
-		        case SPI_SETACTIVEWNDTRKTIMEOUT:
+                    return TRUE;
+                case SPI_SETACTIVEWNDTRKTIMEOUT:
                     DBG0("DlgProc got WM_APP_SETTINGCHANGE:SPI_SETACTIVEWNDTRKTIMEOUT\n");
                     SetDlgItemInt(hDlg, IDC_SYSDELAY, dwSysDelay, FALSE);
                     UpdateDialogApply(hDlg);
                     SetWindowLongPtr(hDlg, DWLP_MSGRESULT, 0);
-			        return TRUE;
-	        }
+                    return TRUE;
+            }
             break;
         case WM_HELP:
             DBG0("DlgProc got WM_HELP\n");
@@ -474,8 +474,8 @@ WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             PostQuitMessage(0);
             return 0;
         case WM_SETTINGCHANGE:
-	        switch (wParam) {
-		        case SPI_SETACTIVEWINDOWTRACKING:
+            switch (wParam) {
+                case SPI_SETACTIVEWINDOWTRACKING:
                     DBG0("WndProc got WM_SETTINGCHANGE:SPI_SETACTIVEWINDOWTRACKING\n");
                     SystemParametersInfo(SPI_GETACTIVEWINDOWTRACKING, 0, &bSysTracking, 0);
                     hIcon = bSysTracking ? hIconHot : hIconCold;
@@ -486,20 +486,20 @@ WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                         (wmTaskbarCreated == WM_NULL) ? NIM_ADD : NIM_MODIFY);
                     CheckMenuItem(hMenuNotify.popup, ID_POPUP_ACTIVATE,
                         bSysTracking ? MF_CHECKED : MF_UNCHECKED);
-			        return 0;
-		        case SPI_SETACTIVEWNDTRKZORDER:
+                    return 0;
+                case SPI_SETACTIVEWNDTRKZORDER:
                     DBG0("WndProc got WM_SETTINGCHANGE:SPI_SETACTIVEWNDTRKZORDER\n");
                     SystemParametersInfo(SPI_GETACTIVEWNDTRKZORDER, 0, &bSysZOrder, 0);
                     SendMessageToPopups(hWnd, WM_APP_SETTINGCHANGE, wParam, lParam);
                     CheckMenuItem(hMenuNotify.popup, ID_POPUP_AUTORAISE,
                         bSysZOrder ? MF_CHECKED : MF_UNCHECKED);
-			        return 0;
-		        case SPI_SETACTIVEWNDTRKTIMEOUT:
+                    return 0;
+                case SPI_SETACTIVEWNDTRKTIMEOUT:
                     DBG0("WndProc got WM_SETTINGCHANGE:SPI_SETACTIVEWNDTRKTIMEOUT\n");
                     SystemParametersInfo(SPI_GETACTIVEWNDTRKTIMEOUT, 0, &dwSysDelay, 0);
                     SendMessageToPopups(hWnd, WM_APP_SETTINGCHANGE, wParam, lParam);
-			        return 0;
-	        }
+                    return 0;
+            }
             break;
         case WM_COMMAND:
             switch (LOWORD(wParam)) {
@@ -526,7 +526,7 @@ WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                     case WM_LBUTTONUP:
                         DBG0("WndProc got WM_APP_NOTIFYICON:IDR_NOTIFYICON:WM_LBUTTONUP\n");
                         return SendMessage(hWnd, WM_COMMAND, ID_POPUP_ACTIVATE, 0);
-			        case WM_RBUTTONUP:
+                    case WM_RBUTTONUP:
                         DBG0("WndProc got WM_APP_NOTIFYICON:IDR_NOTIFYICON:WM_RBUTTONUP\n");
                         ShowPopupMenu(hWnd);
                         return 0;
