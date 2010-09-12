@@ -35,19 +35,19 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE 
+1 TEXTINCLUDE
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE 
+2 TEXTINCLUDE
 BEGIN
     "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
     "#include ""windows.h""\r\n"
     "#undef APSTUDIO_HIDDEN_SYMBOLS\0"
 END
 
-3 TEXTINCLUDE 
+3 TEXTINCLUDE
 BEGIN
     "\r\n"
     "\0"
@@ -71,7 +71,7 @@ IDI_COLD                ICON                    "WinXCold.ico"
 // Menu
 //
 
-IDR_NOTIFYICON MENU 
+IDR_NOTIFYICON MENU
 BEGIN
     POPUP "Popup"
     BEGIN
@@ -91,7 +91,7 @@ END
 //
 
 IDD_SETTINGS DIALOGEX 0, 0, 173, 94
-STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | 
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS |
     DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_CONTEXTHELP | WS_EX_APPWINDOW
 CAPTION "MouseWinX Settings"
@@ -110,11 +110,11 @@ BEGIN
     EDITTEXT        IDC_USERDELAY,87,46,25,14,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_RIGHT
     GROUPBOX        "Current",IDC_SYSGROUP,125,7,41,60,WS_GROUP
-    CONTROL         "",IDC_SYSTRACKING,"Button",BS_AUTOCHECKBOX | 
+    CONTROL         "",IDC_SYSTRACKING,"Button",BS_AUTOCHECKBOX |
                     WS_DISABLED,141,20,10,10
     CONTROL         "",IDC_SYSZORDER,"Button",BS_AUTOCHECKBOX | WS_DISABLED,
                     141,33,9,10
-    EDITTEXT        IDC_SYSDELAY,133,46,25,14,ES_AUTOHSCROLL | WS_DISABLED | 
+    EDITTEXT        IDC_SYSDELAY,133,46,25,14,ES_AUTOHSCROLL | WS_DISABLED |
                     NOT WS_TABSTOP,WS_EX_RIGHT
 END
 
@@ -125,7 +125,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_SETTINGS, DIALOG
     BEGIN
@@ -143,13 +143,13 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HELP_OK             "Closes the dialog box and saves any changes you have made."
     IDS_HELP_CANCEL         "Closes the dialog box without saving any changes you have made."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HELP_APPLY          "Save all the changes you have made without closing the dialog box."
     IDS_HELP_USERGROUP      "Controls to edit the user preferences before applying them to the system."

@@ -62,7 +62,7 @@ UpdateParameter(UINT uiAction, PVOID pvParam)
 }
 
 
-BOOL 
+BOOL
 SendNotifyIconMessage(HWND hWnd, DWORD dwMessage)
 {
     LPCTSTR lpszApp = _T("MouseWinX");
@@ -89,7 +89,7 @@ SendNotifyIconMessage(HWND hWnd, DWORD dwMessage)
     return Shell_NotifyIcon(dwMessage, &nid);
 }
 
-BOOL 
+BOOL
 LoadAllIcons()
 {
     int cxIcon = GetSystemMetrics(SM_CXICON);
@@ -112,7 +112,7 @@ LoadAllIcons()
         (NULL != hIconCold.big) && (NULL != hIconCold.small));
 }
 
-BOOL 
+BOOL
 DestroyAllIcons()
 {
     BOOL ret = TRUE;
@@ -125,7 +125,7 @@ DestroyAllIcons()
     return ret;
 }
 
-BOOL 
+BOOL
 InitInstance()
 {
     LPCTSTR lpszApp = _T("MouseWinX");
@@ -174,7 +174,7 @@ InitInstance()
     return TRUE;
 }
 
-BOOL 
+BOOL
 DestroyInstance()
 {
     BOOL ret = TRUE;
@@ -359,7 +359,7 @@ ShowPopupMenu(HWND hWnd)
     return TRUE;
 }
 
-INT_PTR CALLBACK 
+INT_PTR CALLBACK
 DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     switch (uMsg) {
@@ -371,7 +371,7 @@ DlgProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
             SendMessage(hDlg, WM_APP_SETTINGCHANGE, SPI_SETACTIVEWINDOWTRACKING, 0);
             SendMessage(hDlg, WM_APP_SETTINGCHANGE, SPI_SETACTIVEWNDTRKZORDER, 0);
             SendMessage(hDlg, WM_APP_SETTINGCHANGE, SPI_SETACTIVEWNDTRKTIMEOUT, 0);
-            
+
             // initialize the user settings
             CheckDlgButton(hDlg, IDC_USERTRACKING,
                 bSysTracking ? BST_CHECKED : BST_UNCHECKED);
@@ -544,7 +544,7 @@ WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 }
 
 
-int APIENTRY 
+int APIENTRY
 _tWinMain(HINSTANCE hInstance,
           HINSTANCE hPrevInstance,
           LPTSTR    lpCmdLine,
