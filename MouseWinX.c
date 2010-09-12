@@ -7,11 +7,14 @@
 // version 3 of the License, or (at your option) any later version.
 //
 
-#include "stdafx.h"
-#include <shellapi.h>
+#include <windows.h>
+
 #include <crtdbg.h>
 #include <htmlhelp.h>
+#include <shellapi.h>
 #include <strsafe.h>
+#include <tchar.h>
+
 #include "MouseWinX.h"
 
 #define WM_APP_NOTIFYICON      (WM_APP + 1)
