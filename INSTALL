@@ -1,0 +1,3 @@
+MouseWinX is currently configured to be built with the WDK 7600, as that is
+freely available to Windows developers.  Just open a WDK build environment
+command prompt, change to the MouseWinX source directory, and type "build".
