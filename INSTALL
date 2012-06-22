@@ -1,3 +1,7 @@
 MouseWinX is currently configured to be built with the WDK 7600, as that is
 freely available to Windows developers.  Just open a WDK build environment
 command prompt, change to the MouseWinX source directory, and type "build".
+
+It can also be compiled with MinGW; just make sure that CC and WINDRES point to
+the right things.  If you cross-compile from Fedora, this can be set easily by
+just using "mingw32-make".  Currently the help tooltips don't work with MinGW.

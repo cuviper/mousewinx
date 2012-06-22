@@ -2,3 +2,7 @@
 /buildfre_*
 /objchk_*
 /objfre_*
+*.coff
+*.d
+*.exe
+*.o

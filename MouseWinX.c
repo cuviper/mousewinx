@@ -12,8 +12,8 @@
 #include <crtdbg.h>
 #include <htmlhelp.h>
 #include <shellapi.h>
-#include <strsafe.h>
 #include <tchar.h>
+#include <strsafe.h>
 
 #include "MouseWinX.h"
 
@@ -558,7 +558,7 @@ _tWinMain(HINSTANCE hInstance,
     // Store instance handle in our global variable
     hInst = hInstance;
 
-    _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
+    (void)_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
 
     // Perform application initialization:
     if (!InitInstance()) {
@@ -574,3 +574,16 @@ _tWinMain(HINSTANCE hInstance,
     DestroyInstance();
     return (int) msg.wParam;
 }
+
+
+
+#if defined(__MINGW32__) || defined(__MINGW64__)
+// MinGW doesn't include implementations of HtmlHelp,
+// so these dummy stubs will have to do for now.
+HWND WINAPI __attribute__((weak))
+HtmlHelpA(HWND hwndCaller,LPCSTR pszFile,UINT uCommand,DWORD_PTR dwData)
+{ return NULL; }
+HWND WINAPI __attribute__((weak))
+HtmlHelpW(HWND hwndCaller,LPCWSTR pszFile,UINT uCommand,DWORD_PTR dwData)
+{ return NULL; }
+#endif
